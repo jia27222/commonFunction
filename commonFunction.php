@@ -8,14 +8,13 @@ function creatID(){
 }
 
 //对象转数组
-function object2array($object) {
-    if (is_object($object)) {
-        foreach ($object as $key => $value) {
-            $array[$key] = $value;
-        }
-    }
-    else {
-        $array = $object;
-    }
-    return $array;
+ function object2array($array) {  
+    if(is_object($array)) {  
+        $array = (array)$array;  
+     } if(is_array($array)) {  
+         foreach($array as $key=>$value) {  
+             $array[$key] = object2array($value);  
+             }  
+     }  
+     return $array;  
 }
