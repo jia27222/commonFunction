@@ -18,3 +18,10 @@ function creatID(){
      }  
      return $array;  
 }
+
+//返回当前的毫秒时间戳
+    //5分(min)=300000毫秒(ms)
+    function msectime() {
+        list($tmp1, $tmp2) = explode(' ', microtime());
+        return (float)sprintf('%.0f', (floatval($tmp1) + floatval($tmp2)) * 1000 + 300000);
+    }
