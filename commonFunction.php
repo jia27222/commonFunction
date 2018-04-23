@@ -25,3 +25,38 @@ function creatID(){
         list($tmp1, $tmp2) = explode(' ', microtime());
         return (float)sprintf('%.0f', (floatval($tmp1) + floatval($tmp2)) * 1000 + 300000);
     }
+
+/**
+   * 计算时间差
+   * @param int $timestamp1 时间戳开始
+   * @param int $timestamp2 时间戳结束
+   * @return array
+   */
+ function time_diff($timestamp1, $timestamp2)
+ {
+         if ($timestamp2 <= $timestamp1)
+             {
+                 return array('hours'=>0, 'minutes'=>0, 'seconds'=>0);
+             }
+         $timediff = $timestamp2 - $timestamp1;
+         
+         //计算天数
+         $days = intval($timediff/86400);
+         
+         // 时
+         $remain = $timediff%86400;
+         $hours = intval($remain/3600);
+    
+         // 分
+         $remain = $timediff%3600;
+         $mins = intval($remain/60);
+         // 秒
+         $secs = $remain%60;
+    
+         if ($days>0){
+             $hours = $days*24 + $hours;
+         }
+         $time = array('days'=>$days,'hours'=>$hours, 'minutes'=>$mins, 'seconds'=>$secs);
+    
+         return $time;
+     }
