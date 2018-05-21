@@ -1,0 +1,2 @@
+//替换字符SQl，如下表示将 vcb.rntd.cn 替换为 www.clubmp.cn
+UPDATE article SET  `Content` = REPLACE(  `Content` ,  'vcb.rntd.cn',  'www.clubmp.cn' ) WHERE  `Content` LIKE  '%vcb.rntd.cn%'
